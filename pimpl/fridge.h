@@ -8,14 +8,16 @@
 #ifndef FRIDGE_H_
 #define FRIDGE_H_
 
-#include "engine.h"
-#include <iostream>
+#include <memory>
 
 class Fridge {
 public:
+  Fridge();
+  ~Fridge();
   void cool_down();
 private:
-  Engine engine_;
+  class Fridge_impl;
+  std::unique_ptr<Fridge_impl> fimpl;
 };
 
 

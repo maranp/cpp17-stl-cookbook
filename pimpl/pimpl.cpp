@@ -7,10 +7,7 @@
  */
 
 #include "fridge.h"
-
-void Fridge::cool_down() {
-  std::cout << "cool down" << std::endl;
-}
+#include <memory>
 
 // if engine whihc is used by fridge changes
 // thism user of fridge will also be recompiled
