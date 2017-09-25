@@ -12,3 +12,13 @@ std::vector, std::deque - random access iterator
 
 std::array, std::vector - contiguous iterator
 
+std::ostream_iterator - output iterator
+  * dereference to write
+  * increment only and can't repeat
+
+iterator from non-const container instance - mutable iterator
+  * it is an ouput iterator and as well one of the above other iterators
+
+To build an iterator,
+ * inherit std::iterator
+ * implement *, ++, == operators
