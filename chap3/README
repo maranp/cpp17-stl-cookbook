@@ -1,0 +1,14 @@
+std::istream_iterator - an input iterator
+  * dereferenced to read a value pointed by
+  * on incrementing, value dereferenced is invalidated
+
+std::forward_list - forward iteratator
+  * can be iterated multiple times but only in fwd direction
+
+std::list, std::set, std::map - bidirectional iterator
+  * can be incremented and decremented multiple times
+
+std::vector, std::deque - random access iterator
+
+std::array, std::vector - contiguous iterator
+
