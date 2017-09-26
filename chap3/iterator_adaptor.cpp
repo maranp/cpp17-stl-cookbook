@@ -20,7 +20,7 @@ int main() {
   std::deque<int> dqi;
 
 
-  // ctrl+d to mark end of input
+  // ctrl+d to mark end of input    // calls push_back internally
   std::copy(it_int_cin, it_int_end, std::back_inserter(dqi));
 
   // input stream from input string stream
@@ -31,6 +31,7 @@ int main() {
   std::copy(std::istream_iterator<int> {iss}, {}, std::inserter(dqi, dq_middle));
 
   std::initializer_list<int> il {-2, 5, 23, -9};
+                                          // calls push_front internally
   std::copy(std::begin(il), std::end(il), std::front_inserter(dqi));
 
   std::copy(std::begin(dqi), std::end(dqi),
