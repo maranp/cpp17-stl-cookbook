@@ -60,15 +60,3 @@ int main() {
         (map(twice)
              (copy_and_advance)));
 }
-
-
-// main
-//std::vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-//
-//std::string s = std::accumulate(std::next(std::begin(v)), std::end(v),
-//    std::to_string(v[0]),
-//    [](auto a, auto b) {
-//      return a + "-" + std::to_string(b);
-//    });
-//
-//std::cout << s << std::endl;
