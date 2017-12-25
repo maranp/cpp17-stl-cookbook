@@ -1,15 +1,18 @@
 /*
- * 1.cpp
+ * 2.cpp
  *
- *  Created on: 24-Dec-2017
+ *  Created on: 25-Dec-2017
  *      Author: maran
  */
 
+// copy paste from 1.cpp to use Trie datastructure
 #include <iostream>
 #include <map>
 #include <iterator>
 #include <algorithm>
 //#include <optional>
+#include <fstream>
+#include <sstream>
 
 template <typename T>
 class Trie {
@@ -93,14 +96,22 @@ public:
 
 int main() {
   Trie<std::string> trie;
-  trie.insert({"a", "b", "c"});
-  trie.insert({"a", "b", "d", "e"});
-  trie.insert({"d", "e", "f"});
-  trie.insert({"d", "g", "h"});
 
+  std::fstream infile {"db.txt"};
+
+  for (std::string line; std::getline(infile, line);) {
+    std::istringstream iss {line};
+    trie.insert(std::istream_iterator<std::string>{iss}, {});
+  }
   trie.print();
 
-  trie.subtrie(std::initializer_list<std::string>{"a", "b"}).print();
-  trie.subtrie(std::initializer_list<std::string>{"d"}).print();
-  trie.subtrie(std::initializer_list<std::string>{"e"}).print();
+  std::cout << "enter string to get suggestions:";
+  for (std::string line; std::getline(std::cin, line);) {
+    std::istringstream iss {line};
+    trie.subtrie(std::istream_iterator<std::string> {iss}, {}).print();
+    std::cout << "enter string to get suggestions:";
+  }
 }
+
+
+
