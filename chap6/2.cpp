@@ -97,7 +97,7 @@ public:
 int main() {
   Trie<std::string> trie;
 
-  std::fstream infile {"db.txt"};
+  std::fstream infile {"2_db.txt"};
 
   for (std::string line; std::getline(infile, line);) {
     std::istringstream iss {line};
