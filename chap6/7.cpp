@@ -52,6 +52,3 @@ int main() {
   std::cout << b << std::endl;
 
 }
-
-
-
