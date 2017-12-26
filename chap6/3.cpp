@@ -35,7 +35,7 @@ public:
   }
 };
 
-csignal fourier_transform(csignal const &s, bool back = false) {
+static csignal fourier_transform(csignal const &s, bool back = false) {
   using namespace std;
   // note, {} universal initializer does not help here.
   // {} is taken as initializer list and parameter is taken as first element of the vector
