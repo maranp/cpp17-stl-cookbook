@@ -21,6 +21,8 @@ occurences(It it, It endit) {
   })
   };
   return std::make_tuple(upto, *it, std::distance(it, upto));
+  // not working with c++17 or c++1z
+  //return {upto, *it, std::distance(it, upto)};
 }
 
 std::string compress(std::string const &s) {
@@ -28,9 +30,16 @@ std::string compress(std::string const &s) {
   auto const endit = std::end(s);
   std::stringstream ss;
   while (it != endit) {
-    auto const tup = occurences(it, endit);
-    ss << std::get<1>(tup) <<std::get<2>(tup);
-    it = std::get<0>(tup);
+//    auto const tup = occurences(it, endit);
+//    ss << std::get<1>(tup) <<std::get<2>(tup);
+    //it = std::get<0>(tup);
+
+    // didnt work with -std=c++17, then changer compiler flag to -std=c++1z. It compiled.
+    // but, switching config to -std=c++17, doesn't complain anymore ??!!!
+    auto [itr, cc , llen] ( occurences(it, endit) );
+    ss << cc << llen;
+    it = itr;
+
   }
   return ss.str();
 }
