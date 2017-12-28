@@ -1,6 +1,6 @@
 CXX := clang++-5.0
 CXXINCFLAGS := -std=c++1z -I /home/maran/eclipse/boost_1_62_0 #-Werror=narrowing #-O3
-CXXFLAGS := -Wall -g $(CXXINCFLAGS)
+CXXFLAGS := -Wall -g $(CXXINCFLAGS) -fsanitize=address -fsanitize=undefined -D_GLIBCXX_DEBUG
 #CXXDEFS := -DDEBUG
 LDFLAGS := -lpthread
 SRC := $(wildcard *.cpp)
