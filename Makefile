@@ -11,7 +11,7 @@ TOPTARGETS := all clean
 # either of the below 2 will work
 # SUBDIRS := $(wildcard */)
 # SUBDIRS := $(wildcard */.)
-SUBDIRS := chap7
+SUBDIRS := cpp-basic-plural
 
 $(TOPTARGETS) : $(SUBDIRS)
 $(SUBDIRS) :
