@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <memory>
 #include "Resource.h"
 
 class Person {
@@ -8,13 +9,12 @@ private:
   std::string firstname;
   std::string lastname;
   int arbitrarynumber;
-  // to keep things that are optional to the object (Person)
-  Resource *pResource;
+  // if Person object can be copied keeping the resource common for all the copied Persons
+  // use shared_ptr
+  std::shared_ptr<Resource> pResource;
+
 public:
   Person(std::string first, std::string last, int arbitrary);
-  Person(Person const &);
-  Person & operator=(Person const &);
-  ~Person();
   std::string GetName() const;
   int GetNumber() const;
   void SetNumber(int number) {
@@ -24,4 +24,7 @@ public:
     firstname = first;
   }
   void AddResource();
+  std::string GetResourceName() const {
+    return pResource ? pResource->GetName() : "";
+  }
 };
