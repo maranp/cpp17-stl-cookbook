@@ -8,8 +8,8 @@ TARGET := $(SRC:%.cpp=bin/%)
 
 all: bin bin/plural
 
-bin/plural : memory.cpp Person.cpp
-	$(CXX) $(CXXFLAGS) $(CXXDEFS) memory.cpp Person.cpp -o $@ $(LDFLAGS)
+bin/plural : pointer_and_inheritance.cpp Person.cpp Tweeter.cpp
+	$(CXX) $(CXXFLAGS) $(CXXDEFS) pointer_and_inheritance.cpp Person.cpp Tweeter.cpp -o $@ $(LDFLAGS)
 
 bin:
 	mkdir bin

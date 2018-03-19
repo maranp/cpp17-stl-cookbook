@@ -11,8 +11,8 @@ private:
   int arbitrarynumber;
 public:
   Person(std::string first, std::string last, int arbitrary);
-  ~Person();
-  std::string GetName() const;
+  virtual ~Person() {}
+  virtual std::string GetName() const;
   int GetNumber() const;
   void SetNumber(int number) {
     arbitrarynumber = number;
