@@ -6,7 +6,7 @@
  */
 
 #include <iostream>
-#include "person.h"
+#include "Person.h"
 
 auto dummy(Person p) {
 
