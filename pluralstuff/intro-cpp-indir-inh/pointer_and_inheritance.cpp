@@ -6,11 +6,18 @@
  */
 
 #include <iostream>
+using std::cout;
+using std::endl;
+
 #include "Person.h"
 #include "Tweeter.h"
 
-auto dummy(Person p) {
+#include <memory>
+using std::shared_ptr;
+using std::make_shared;
 
+auto dummy(Person const & p) {
+  return p.GetNumber();
 }
 
 int main() {
@@ -25,8 +32,6 @@ int main() {
 
   Tweeter &rtmaran = maranp;
 
-  using std::cout;
-  using std::endl;
 
   cout << rpmaran.GetName() << endl;
   cout << ppmaran->GetName() << endl;
@@ -35,9 +40,19 @@ int main() {
   cout << rtmaran.GetName() << endl;
   cout << pptmaran->GetName() << endl;
 
-  Person *pptsomeone = new Tweeter {"Someone", "P", 20, "@someone"};;
-  cout << pptsomeone->GetName() << endl;
-  delete pptsomeone;
+//  Person *pptsomeone = new Tweeter {"Someone", "P", 20, "@someone"};;
+//  cout << pptsomeone->GetName() << endl;
+//  delete pptsomeone;
+
+  shared_ptr<Person> spThirt = make_shared<Tweeter>("Someone", "P", 20, "@someone");
+  cout << spThirt->GetName() << endl;
+
+  maran = maranp;
+  cout << maran.GetName() << endl; // slicing
+  cout << maranp.GetName() << endl;
+
+  cout << dummy(maranp) << endl; // slicing if dummy takes arg by value
+  cout << maranp.GetNumber() << endl;
 
   return 0;
 }

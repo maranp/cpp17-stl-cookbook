@@ -20,3 +20,7 @@ Tweeter::Tweeter(std::string first,
    return Person::GetName() + " " + twitterhandle;
  }
 
+ int Tweeter::GetNumber() const {
+   return 0;
+ }
+

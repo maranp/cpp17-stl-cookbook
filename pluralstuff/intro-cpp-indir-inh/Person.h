@@ -13,7 +13,7 @@ public:
   Person(std::string first, std::string last, int arbitrary);
   virtual ~Person() {}
   virtual std::string GetName() const;
-  int GetNumber() const;
+  virtual int GetNumber() const;
   void SetNumber(int number) {
     arbitrarynumber = number;
   }
