@@ -8,8 +8,8 @@ TARGET := $(SRC:%.cpp=bin/%)
 
 all: bin bin/plural
 
-bin/plural : count.cpp
-	$(CXX) $(CXXFLAGS) $(CXXDEFS) count.cpp -o $@ $(LDFLAGS)
+bin/plural : sorting.cpp
+	$(CXX) $(CXXFLAGS) $(CXXDEFS) sorting.cpp -o $@ $(LDFLAGS)
 
 bin:
 	mkdir bin
