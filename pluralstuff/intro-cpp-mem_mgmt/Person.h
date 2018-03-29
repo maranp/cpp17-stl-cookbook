@@ -9,13 +9,18 @@ private:
   std::string firstname;
   std::string lastname;
   int arbitrarynumber;
-  // if Person object can be copied keeping the resource common for all the copied Persons
-  // use shared_ptr
-  // std::shared_ptr<Resource> pResource;
-  Resource pResource;
+  // unique_ptr is non copiable.
+  // the copy constructor of this class becomes implicitly deleted with any non copyable member
+  // and hence becomes non-copyable
+  // so to make the class copyiable, write explicit copy contructor and copy-assign memebers
+  // handling the non-copyable member correctly
+  std::unique_ptr<Resource> pResource;
 
 public:
   Person(std::string first, std::string last, int arbitrary);
+  Person(Person const &);
+  Person & operator=(Person const &);
+
   std::string GetName() const;
   int GetNumber() const;
   void SetNumber(int number) {
@@ -26,11 +31,10 @@ public:
   }
   void AddResource();
   void SetResourceName(std::string resource_name) {
-    Resource newres {resource_name};
-    pResource = newres;
+    pResource.reset(new Resource{resource_name});
   }
   std::string GetResourceName() const {
     //return pResource ? pResource->GetName() : "";
-    return pResource.GetName();
+    return pResource->GetName();
   }
 };
