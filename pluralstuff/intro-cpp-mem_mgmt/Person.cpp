@@ -10,18 +10,18 @@
 Person::Person(std::string first, std::string last, int arbitrary)
   : firstname {first}, lastname {last}, arbitrarynumber {arbitrary} {}
 
-Person::Person(Person const &p)
-: firstname {p.firstname}, lastname {p.lastname}, arbitrarynumber {p.arbitrarynumber} {
-  pResource.reset(new Resource{p.GetResourceName()});
-}
-
-Person & Person::operator=(Person const &p) {
-  firstname = p.firstname;
-  lastname  = p.lastname;
-  arbitrarynumber = p.arbitrarynumber;
-  pResource.reset(new Resource{p.GetResourceName()});
-  return *this;
-}
+//Person::Person(Person const &p)
+//: firstname {p.firstname}, lastname {p.lastname}, arbitrarynumber {p.arbitrarynumber} {
+//  pResource.reset(new Resource{p.GetResourceName()});
+//}
+//
+//Person & Person::operator=(Person const &p) {
+//  firstname = p.firstname;
+//  lastname  = p.lastname;
+//  arbitrarynumber = p.arbitrarynumber;
+//  pResource.reset(new Resource{p.GetResourceName()});
+//  return *this;
+//}
 
 std::string Person::GetName() const {
   return firstname + " " + lastname;

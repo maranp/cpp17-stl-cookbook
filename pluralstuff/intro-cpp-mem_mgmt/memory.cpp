@@ -18,7 +18,7 @@ int main() {
     maran.SetResourceName("Maran resource");
     maran.SetResourceName("Maran second resource");
     Person maran2 = maran;
-    maran2.SetResourceName("Maran2 resource");
+    //maran2.SetResourceName("Maran2 resource");
     maran = maran2;
   }
   return 0;
