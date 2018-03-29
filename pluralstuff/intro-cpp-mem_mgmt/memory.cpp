@@ -15,12 +15,11 @@ auto dummy(Person p) {
 int main() {
   {
     Person maran {"Maran", "P", 20};
-    maran.AddResource();
-    std::string s1 = maran.GetResourceName();
-    maran.AddResource();
-    Person m1 = maran;
-    dummy(m1);
-    std::cout << s1 << std::endl;
+    maran.SetResourceName("Maran resource");
+    maran.SetResourceName("Maran second resource");
+    Person maran2 = maran;
+    maran2.SetResourceName("Maran2 resource");
+    maran = maran2;
   }
   return 0;
 }

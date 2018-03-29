@@ -8,7 +8,7 @@
 #include "Person.h"
 
 Person::Person(std::string first, std::string last, int arbitrary)
-  : firstname {first}, lastname {last}, arbitrarynumber {arbitrary} {}
+  : firstname {first}, lastname {last}, arbitrarynumber {arbitrary}, pResource {"default"} {}
 
 std::string Person::GetName() const {
   return firstname + " " + lastname;
@@ -19,6 +19,6 @@ int Person::GetNumber() const {
 }
 
 void Person::AddResource() {
-  pResource.reset();
-  pResource = std::make_shared<Resource>("Resource for " + GetName());
+  //pResource.reset();
+  //pResource = std::make_shared<Resource>("Resource for " + GetName());
 }

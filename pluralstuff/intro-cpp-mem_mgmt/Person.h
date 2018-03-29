@@ -11,7 +11,8 @@ private:
   int arbitrarynumber;
   // if Person object can be copied keeping the resource common for all the copied Persons
   // use shared_ptr
-  std::shared_ptr<Resource> pResource;
+  // std::shared_ptr<Resource> pResource;
+  Resource pResource;
 
 public:
   Person(std::string first, std::string last, int arbitrary);
@@ -24,7 +25,12 @@ public:
     firstname = first;
   }
   void AddResource();
+  void SetResourceName(std::string resource_name) {
+    Resource newres {resource_name};
+    pResource = newres;
+  }
   std::string GetResourceName() const {
-    return pResource ? pResource->GetName() : "";
+    //return pResource ? pResource->GetName() : "";
+    return pResource.GetName();
   }
 };
