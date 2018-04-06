@@ -20,6 +20,18 @@ public:
     name = res.name;
     return *this;
   }
+  // move sematics allow vector push_back to leverage move members when
+  // when passing rvalue to push_back
+  Resource(Resource && res) : name {std::move(res.name)} {
+    std::cout << "move constructing " << name << " of " << this <<  std::endl;
+  }
+  Resource & operator=(Resource && res) {
+    if (this != &res) {
+      std::cout << "move assigning " << name << " of " << this <<  std::endl;
+      name = std::move(res.name);
+    }
+    return *this;
+  }
   ~Resource() {
     std::cout << "destructing " << name << " of " << this << std::endl;
   }

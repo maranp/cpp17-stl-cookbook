@@ -11,8 +11,8 @@ all: bin bin/plural
 #bin/plural : memory.cpp Person.cpp
 #	$(CXX) $(CXXFLAGS) $(CXXDEFS) memory.cpp Person.cpp -o $@ $(LDFLAGS)
 
-bin/plural : use_algos.cpp
-	$(CXX) $(CXXFLAGS) $(CXXDEFS) use_algos.cpp -o $@ $(LDFLAGS)
+bin/plural : containers.cpp
+	$(CXX) $(CXXFLAGS) $(CXXDEFS) containers.cpp -o $@ $(LDFLAGS)
 
 bin:
 	mkdir bin

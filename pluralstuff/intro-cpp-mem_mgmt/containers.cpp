@@ -28,6 +28,12 @@ int main() {
     // are reduced to one construction (in the vector directly)
     //v.emplace_back("first");
     cout << "----------------------------------------" << endl;
+    // this could be happening behind the scenes
+    // push_back could be taking forwarding reference (universal reference) as its parameter
+    // when it wants to construct the pushed back object in place in the vector,
+    // it could be calling the constructor of the object with parameter inside std::forward
+    // now the constructor call can be resolved between copy and move constructor
+    // based on the parameter being lvalue or rvalue respectively
     v.push_back(Resource("second"));
     throw (std::bad_exception());
     cout << "----------------------------------------" << endl;
