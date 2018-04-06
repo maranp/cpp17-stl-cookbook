@@ -16,6 +16,19 @@ using std::endl;
 using std::vector;
 
 int main() {
+  {
+    Resource r("local");
+    cout << "----------------------------------------" << endl;
+    vector<Resource> v;
+    v.push_back(r);
+    //v.push_back(std::move(r));
+    cout << "----------------------------------------" << endl;
+    v.push_back(Resource("first"));
+    cout << "----------------------------------------" << endl;
+    v.push_back(Resource("second"));
+    cout << "----------------------------------------" << endl;
+  }
+#if 0
   try {
     Resource r("local");
     cout << "----------------------------------------" << endl;
@@ -42,6 +55,7 @@ int main() {
   } catch (std::exception& e) {
     cout << "exception caught" << endl;
   }
+#endif
   return 0;
 }
 

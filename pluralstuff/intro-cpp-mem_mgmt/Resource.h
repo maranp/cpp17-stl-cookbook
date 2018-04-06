@@ -29,6 +29,7 @@ public:
     if (this != &res) {
       std::cout << "move assigning " << name << " of " << this <<  std::endl;
       name = std::move(res.name);
+      res.name.clear();
     }
     return *this;
   }
