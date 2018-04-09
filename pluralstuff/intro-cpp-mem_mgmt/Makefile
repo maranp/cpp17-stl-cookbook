@@ -11,8 +11,11 @@ all: bin bin/plural
 #bin/plural : memory.cpp Person.cpp
 #	$(CXX) $(CXXFLAGS) $(CXXDEFS) memory.cpp Person.cpp -o $@ $(LDFLAGS)
 
-bin/plural : containers.cpp
-	$(CXX) $(CXXFLAGS) $(CXXDEFS) containers.cpp -o $@ $(LDFLAGS)
+#bin/plural : containers.cpp
+#	$(CXX) $(CXXFLAGS) $(CXXDEFS) containers.cpp -o $@ $(LDFLAGS)
+
+bin/plural : pimpl_main.cpp Pimpl_Account.cpp Pimpl_AccountImpl.cpp
+	$(CXX) $(CXXFLAGS) $(CXXDEFS) pimpl_main.cpp Pimpl_Account.cpp Pimpl_AccountImpl.cpp -o $@ $(LDFLAGS)
 
 bin:
 	mkdir bin
