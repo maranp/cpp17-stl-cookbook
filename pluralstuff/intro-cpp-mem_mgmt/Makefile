@@ -14,8 +14,11 @@ all: bin bin/plural
 #bin/plural : containers.cpp
 #	$(CXX) $(CXXFLAGS) $(CXXDEFS) containers.cpp -o $@ $(LDFLAGS)
 
-bin/plural : pimpl_main.cpp Pimpl_Account.cpp Pimpl_AccountImpl.cpp
-	$(CXX) $(CXXFLAGS) $(CXXDEFS) pimpl_main.cpp Pimpl_Account.cpp Pimpl_AccountImpl.cpp -o $@ $(LDFLAGS)
+#bin/plural : pimpl_main.cpp Pimpl_Account.cpp Pimpl_AccountImpl.cpp
+#	$(CXX) $(CXXFLAGS) $(CXXDEFS) pimpl_main.cpp Pimpl_Account.cpp Pimpl_AccountImpl.cpp -o $@ $(LDFLAGS)
+
+bin/plural : ctocpp.cpp
+	$(CXX) $(CXXFLAGS) $(CXXDEFS) ctocpp.cpp -o $@ $(LDFLAGS)
 
 bin:
 	mkdir bin
